@@ -1,0 +1,122 @@
+@CHARSET "ISO-8859-1";
+#sidebar {
+	float: left;
+	width: 250px;
+}
+
+#content {
+	width: auto !important;
+	padding-left: 250px;
+	margin: 0 !important;
+}
+
+.btn-toolbar {
+	margin: 0 !important;
+}
+
+.btn-tut {
+	margin-top: 5px;
+}
+
+.table {
+	width: 100%;
+}
+
+.table thead tr:first-child {
+	background-color: black;
+	color: white;
+}
+
+.table tr {
+	height: 40px;
+}
+
+.table th {
+	display: table-cell;
+	vertical-align: middle !important;
+}
+
+.table td {
+	display: table-cell;
+	vertical-align: middle !important;
+	width: 25%;
+}
+
+/* Calendar */
+.ui-datepicker {
+	width: 216px;
+	height: auto;
+	margin: 5px auto 0;
+	font: 14px Arial, sans-serif;
+}
+
+.ui-datepicker a {
+	text-decoration: none;
+	color: black;
+}
+
+.ui-datepicker table {
+	width: 100%;
+}
+
+.ui-datepicker-header {
+	font-weight: bold;
+	-webkit-box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, .2);
+	-moz-box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, .2);
+	box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, .2);
+	line-height: 30px;
+}
+
+.ui-datepicker-title {
+	text-align: center;
+}
+
+.ui-datepicker-prev {
+	float: left;
+}
+
+.ui-datepicker-next {
+	float: right;
+}
+
+.ui-datepicker th {
+	padding: 10px 0;
+}
+
+.ui-datepicker tbody td {
+	padding: 0;
+}
+
+.ui-datepicker tbody td span, .ui-datepicker td a {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	width: 30px;
+	height: 30px;
+}
+
+.ui-datepicker-calendar .ui-state-hover {
+	background: #eee;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+	background: #08c;
+}
+
+button {border: 1px #AAA solid; padding: 4px 10px;}
+.hide {display: none;}
+
+#background{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #000000;
+    z-index: 1;
+}
+.chart{
+	
+	height:300px;
+}
