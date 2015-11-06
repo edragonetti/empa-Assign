@@ -56,7 +56,7 @@ class JWTAuthController extends Controller
 			
 			$token = JWTAuth::fromUser($user);
 			
-			DragoCookie::setCookie($token,640,false);
+			DragoCookie::setCookie($token,10,false);
 			
 		    
 		}

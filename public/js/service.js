@@ -1,3 +1,26 @@
+dashboard.factory('httpResponseInterceptor',['$q','$location',function($q,$location){
+	return {
+        response: function(response){
+            if (response.status === 401) {
+                console.log("Response 401");
+            }
+            return response || $q.when(response);
+        },
+        responseError: function(rejection) {
+            if (rejection.status === 401) {
+                console.log("Response Error 401",rejection);
+                alert("Sessione Scaduta");
+                window.location.reload();
+            }
+            return $q.reject(rejection);
+        }
+    }
+}]);
+
+dashboard.config(['$httpProvider',function($httpProvider) {
+  $httpProvider.interceptors.push('httpResponseInterceptor');
+}]);
+
 dashboard.service('GridDataService', ['$q','$http', 
                               function ($q, $http){
 	   this.getData = function (url,start, number, params) {
@@ -10,7 +33,8 @@ dashboard.service('GridDataService', ['$q','$http',
 					numberOfPages: 1
 				}); 
 		   }).error(function(data, status, header, config) {
-			    alert("qui");
+			    if (status!="401")
+			    	alert("Si e' verificato un errore");
 		   });;
 			
 			
@@ -30,6 +54,9 @@ dashboard.service('ChartDataService', ['$q','$http',
         			   deferred.resolve({
         					data: response
         				}); 
+        		   }).error(function(data, status, header, config) {
+        			   if (status!="401")
+        				   alert("Si e' verificato un errore");
         		   });
         			
         			
