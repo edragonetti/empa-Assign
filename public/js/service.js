@@ -9,7 +9,9 @@ dashboard.service('GridDataService', ['$q','$http',
 					data: response,
 					numberOfPages: 1
 				}); 
-		   });
+		   }).error(function(data, status, header, config) {
+			    alert("qui");
+		   });;
 			
 			
 
