@@ -13,8 +13,8 @@ This is my implementation of the assignment by Empatica people.
 A series of rest services that consume and produce json data.<BR>
 All the rest services are under jwt authentication<BR>
 
-/api/logIn      It creates a jwt token, sets a http only cookie(in production it must be also with secure flag) and returns a json response with the created token.
-input: {"username":"xxxxxx","password":"yyyyyy"}
+/api/logIn      It creates a jwt token, sets a http only cookie(in production it must be also with secure flag) and returns a json response with the created token.<BR>
+input: {"username":"xxxxxx","password":"yyyyyy"}<BR>
 
 
 /api/getTemp     it returns in json the values contained in TEMP.csv <BR>
