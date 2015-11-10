@@ -1,27 +1,73 @@
-## Laravel PHP Framework
+# empa-Assign
+Empatica Assignment
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+This is my implementation of the assignment by Empatica people.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+<a href="http://52.32.228.74/empaAssignment/public" target="_blank">DEMO</a>
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Documentation
+<h1>THE BACK END</h1>
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+<h2>The REST SERVICES</h2>
 
-## Contributing
+A series of rest services that consume and produce json data.<BR>
+All the rest services are under jwt authentication<BR>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+/api/logIn      It creates a jwt token, sets a http only cookie(in production it must be also with secure flag) and returns a json response with the created token.
+input: {"username":"xxxxxx","password":"yyyyyy"}
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+/api/getTemp     it returns in json the values contained in TEMP.csv <BR>
+/api/getEda      it returns in json the values contained in EDA.csv <BR>
+/api/getAcc      it returns in json the module of the x,y,z values from ACC.csv <BR>
+/api/getHr       it returns in json the values contained in HR.csv <BR>
 
-### License
+the returned json format: {"t":time,"f":freq, "d":[val1,val2,val3,val4................. <BR>
+t: start time in milliseconds <BR>
+f: frequency <BR>
+d: the data <BR>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+/api/getUsers    it returns in json the user list <BR>
+/api/getDevices  it returns in json the device list <BR>
+/api/getSessions it returns in json the session list <BR>
+/api/createUser  it create an user <BR>
+
+<h2>DATABASE</h2> <BR>
+users: user credentials for authentication <BR>
+user_profile: user profile ("admin","doctor","operator","user") <BR>
+sessions: the user sessions <BR>
+role_permissions: the permission for the every role <BR>
+devices: the device list <BR>
+
+<h2>THE DATA SOURCES</h2><BR>
+ACC.csv, EDA.csv, HR.csv, TEMP.csv<BR>
+
+<h2>FRAMEWORK AND PLATFORMS</h2><BR>
+php, laravel, MySql, Json Web Token (<a href="https://github.com/tymondesigns/jwt-auth/wiki/Authentication">tymondesign</a>)<BR>
+
+<h1>THE FRONT END</h1>
+for signing in the following users are available (username,password):<BR>
+admin role:  "admin","admin"<BR>
+operator role:  "oper1","oper1"<BR>
+doctor role:  "doctor1","doctor1"<BR>
+user role:  "user1","user1"<BR>
+user role:  "user2","user2"<BR>
+
+<h2>PAGE STRUCTURE</h2>
+Login view<BR>
+Device view shows device list  (admin,doctor,operator)<BR>
+User view shows user list (admin,doctor)<BR>
+Session view shows session list (admin,doctor,operator,user)<BR>
+Session detail shows EDA,HR,Temperature, Accelerometers charts.(admin,doctor,operator,user)<BR>
+
+<h2>FRAMEWORK AND PLATFORMS</h2><BR>
+angularjs, bootstrap, highchart, jquery
+
+<h1>INSTALLATION</h1>
+Prerequisites: MySQL, Apache, php (WAMP or LAMP stack)
+
+Copy the directory empaticaAssignment under an Apache location.<BR>
+Create a new schema on MYSql.<BR>
+Rename "example.env to" ".env".<BR>
+In ".env" set the database parameters with the created schema and your mysql instance user and password<BR>
+Execute the script "db.sql" for populating schema with tables and data<BR>
