@@ -30,7 +30,7 @@ d: the data <BR>
 /api/getUsers    it returns in json the user list <BR>
 /api/getDevices  it returns in json the device list <BR>
 /api/getSessions it returns in json the session list <BR>
-/api/createUser  it create an user <BR>
+/api/createUser  it creates an user <BR>
 
 <h2>DATABASE</h2> <BR>
 users: user credentials for authentication <BR>
